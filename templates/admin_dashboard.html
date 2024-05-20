@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <table border="1">
+        <tr>
+            <th>Branch</th>
+            <th>Staff Name</th>
+            <th>Staff Number</th>
+            <th>Mobile</th>
+            <th>Shift Timing</th>
+        </tr>
+        {% for shift in shifts %}
+        <tr>
+            <td>{{ shift.branch }}</td>
+            <td>{{ shift.staff_name }}</td>
+            <td>{{ shift.staff_number }}</td>
+            <td>{{ shift.mobile }}</td>
+            <td>{{ shift.shift_timing }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('generate_pdf') }}">Download PDF Report</a>
+    <a href="{{ url_for('generate_docx') }}">Download DOCX Report</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
